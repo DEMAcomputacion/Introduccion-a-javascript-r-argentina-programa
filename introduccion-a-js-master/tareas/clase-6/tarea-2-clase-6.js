@@ -39,7 +39,7 @@ function agregaUnInput(cantidadIntegrantes){
     $input.id = "input" + cantidadIntegrantes;
     $divNuevosInputs.appendChild($div);
     $divNuevosInputs.appendChild($label);
-    $label.innerText = "Integrante numero " + cantidadIntegrantes; + "   ";
+    $label.innerText = "Ingresos anuales del integrante # " + cantidadIntegrantes;
     $divNuevosInputs.appendChild($input)
     return cantidadIntegrantes;
 }
