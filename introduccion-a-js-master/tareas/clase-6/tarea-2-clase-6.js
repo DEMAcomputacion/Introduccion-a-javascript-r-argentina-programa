@@ -20,6 +20,10 @@ let cantidadIntegrantes = 0;
 agregaCalcular();
 const $botonCalcular = document.querySelector("#botonCalcular");
 ocultarBotonCalcular();
+let menorSalario = Infinity;
+let mayorSalario = 1;
+let promedioAnual;
+let promedioMensual;
 
 $botonAgregar.onclick = function(){
   
@@ -94,7 +98,6 @@ function preparaArray(cantidadIntegrantes){
         for(let i = 0; i < cantidadIntegrantes; i++){
         selectorInput = "#input" + (i + 1);
         let valorInput = document.querySelector(selectorInput).value;
-
             if(valorInput == null || valorInput.length == 0){
             }else{
                 arrayInputs.push(valorInput);
@@ -106,22 +109,11 @@ function preparaArray(cantidadIntegrantes){
 }
 
 function hacerCalculos(arrayInputs){
-    let menorSalario = Infinity;
-    let mayorSalario = 0;
-    let sumatoria = 0;
-    let promedioAnual;
-    let promedioMensual;
-
-    //Calcula el menor, mayor y promedio
-    for(let i = 0; i < arrayInputs.length; i++){
-        let inputActual = "input" + i;
-        let numeroActual = Number(arrayInputs[i]);
-        numeroActual < menorSalario ? menorSalario = numeroActual : "";
-        numeroActual > mayorSalario ? mayorSalario = numeroActual : "";
-        sumatoria += numeroActual;
-    }
-    promedioAnual = sumatoria / arrayInputs.length;
-    promedioMensual = promedioAnual / 12;
+    
+    obtieneMenorSalario(arrayInputs);
+    obtieneMayorSalario(arrayInputs);
+    obtienePromedioAnual(arrayInputs);
+    obtienePromedioMensual(promedioAnual);
 
     //Llama a la funcion que muestra los resultados
     muestraResultados(menorSalario, mayorSalario, promedioAnual, promedioMensual)
@@ -146,4 +138,37 @@ function ocultarResultados(){
     $salarioMayor.classList = "oculto";
     $promedioAnual.classList = "oculto";
     $promedioMensual.classList = "oculto";
+}
+
+function obtieneMenorSalario(arrayInputs){
+
+    for(let i = 0; i < arrayInputs.length; i++){
+        let numeroActual = Number(arrayInputs[i]);
+        numeroActual < menorSalario ? menorSalario = numeroActual : "";
+    }
+    return menorSalario;
+}
+
+function obtieneMayorSalario (arrayInputs){
+
+    for(let i = 0; i < arrayInputs.length; i++){
+        let numeroActual = Number(arrayInputs[i]);
+        numeroActual > mayorSalario ? mayorSalario = numeroActual : "";
+    }
+    return mayorSalario;
+}
+
+function obtienePromedioAnual(arrayInputs){
+    sumatoria = 0;
+    for(let i = 0; i < arrayInputs.length; i++){
+        let numeroActual = Number(arrayInputs[i]);
+        sumatoria += numeroActual;
+    }
+    promedioAnual = sumatoria / arrayInputs.length;
+    return promedioAnual;
+}
+
+function obtienePromedioMensual(promedioAnual){
+    promedioMensual = promedioAnual / 12;
+    return promedioMensual;
 }
