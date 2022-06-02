@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='rework-clase-6.css'>
+
+</head>
+<body>
+<section>
+    <form id="integrantes">
+        <div name="contenedorMensajesError">
+            <label id="mensajeError" class="errorTxt"> </label>
+        </div>
+        <div name="divPaso1">
+            <label>Ingrese la cantidad de integrantes<br>de su grupo familiar</label><br>
+            <input name="cantidadIntegrantes" class="inputTxt"><br>
+            <button id="botonSiguiente">Siguiente</button>
+        </div>
+        <div id="inputsIntegrantes">
+
+        </div>
+        <div id="botonesFooter">
+            <button id="botonCalcular" class="oculto">Calcular</button>
+            <button id="botonResetear" class="oculto">Resetear</button>
+        </div>
+        <div id="mostrarCalculos">
+            <p id="mayorEdad"></p>
+            <p id="menorEdad"></p>
+            <p id="promedioEdad"></p>
+        </div>
+    </form>
+</section>
+
+<script src='rework-clase-6.js'></script>
+<script src='pruebas.js'></script>
+</body>
+</html>
